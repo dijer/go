@@ -1,6 +1,11 @@
 package main
 
-import "fmt"
+import (
+	"bufio"
+	"fmt"
+	"os"
+	"strconv"
+)
 
 func insertionSort(slice []int) {
 	for i := 1; i < len(slice); i++ {
@@ -15,9 +20,25 @@ func insertionSort(slice []int) {
 }
 
 func main() {
-	var slice []int = []int{4, 101, 100, 5, 1, 3, 1}
+	var slice []int
+	fmt.Println("Вводите числа для входящего массива, нажимая enter.\nКогда закончите - нажмите enter на пустой строке")
+	scanner := bufio.NewScanner(os.Stdin)
+
+	for scanner.Scan() {
+		if scanner.Text() == "" {
+			break
+		} else {
+
+			number, err := strconv.Atoi((scanner.Text()))
+			if err == nil {
+				slice = append(slice, number)
+			}
+		}
+	}
+
+	fmt.Println("Входящий массив:\n", slice)
+
 	insertionSort(slice)
 
-	fmt.Println("Отсортированный массив:")
-	fmt.Println(slice)
+	fmt.Println("\nОтсортированный массив:\n", slice)
 }
