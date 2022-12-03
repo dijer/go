@@ -1,0 +1,16 @@
+==================
+WARNING: DATA RACE
+Read at 0x00c000016088 by goroutine 6:
+  main.main.func1()
+      /mnt/c/work/courses/geekbrains/go/go/level2/06/03.go:7 +0x38
+
+Previous write at 0x00c000016088 by main goroutine:
+  main.main()
+      /mnt/c/work/courses/geekbrains/go/go/level2/06/03.go:10 +0x9e
+
+Goroutine 6 (running) created at:
+  main.main()
+      /mnt/c/work/courses/geekbrains/go/go/level2/06/03.go:6 +0x7a
+==================
+Found 1 data race(s)
+exit status 66
